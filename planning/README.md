@@ -4,8 +4,8 @@
 
 |  Day | Deliverable | Status
 |---|---| ---|
-|Day 1| Project Description | Incomplete
-|Day 1| Wireframes / Priority Matrix / Timeline `backend` and `frontend`| Incomplete
+|Day 1| Project Description | Complete
+|Day 1| Wireframes / Priority Matrix / Timeline `backend` and `frontend`| Complete
 |Day 2| Working RestAPI | Incomplete
 |Day 3| Core Application Structure (HTML, CSS, etc.) | Incomplete
 |Day 4| MVP & Bug Fixes | Incomplete
@@ -14,18 +14,24 @@
 ## Project Description
 This is a note-taking app that a user can add, edit, and delete memo. This project is built using CSS, HTML and JavaScript jQuery and responsive to different devices such as mobile, tablet, and desktop. This project is connected to project2_back.
 
+## User Stories 
+- Users can create a new note
+- Users can add pictures to their note 
+- Users can edit their note
+- Users can delete their note 
+
 ## Google Sheet
 [Google Sheet](https://docs.google.com/spreadsheets/d/1PyCkPZeIBSzU58bRY3UI4p7iiJOjNmuEtmBo9yVgr8A/edit?usp=sharing) 
 
 ## Wireframes
-- [Mobile](https://res.cloudinary.com/dqduwnrb1/image/upload/v1596164789/mobile_hsmlfi.jpg)
-- [Tablet](https://res.cloudinary.com/dqduwnrb1/image/upload/v1596164485/tablet_z6g4dt.jpg)
-- [Desktop](https://res.cloudinary.com/dqduwnrb1/image/upload/v1596164485/desktop_en4fqa.jpg)
+- [Mobile](https://res.cloudinary.com/dqduwnrb1/image/upload/v1596301578/mobile_oh5wjq.png)
+- [Tablet](https://res.cloudinary.com/dqduwnrb1/image/upload/v1596301578/tablet_srjzxq.png)
+- [Desktop](https://res.cloudinary.com/dqduwnrb1/image/upload/v1596301578/desktop_rt0aet.png)
 
 
 ## Time/Priority Matrix 
 
-[prioritized](https://docs.google.com/presentation/d/1MZxvIWCe_ydok3TORKdv5tulbhNnx0QdxQD70BjMKbI/edit?usp=sharing) 
+[Frontend Matrix](https://docs.google.com/presentation/d/1MZxvIWCe_ydok3TORKdv5tulbhNnx0QdxQD70BjMKbI/edit?usp=sharing) 
 
 
 #### MVP (examples)
@@ -69,7 +75,7 @@ This is a note-taking app that a user can add, edit, and delete memo. This proje
 | Total | H | 4.5hrs| -hrs | -hrs |
 
 ## Additional Libraries
- Use this section to list all supporting libraries and thier role in the project. 
+ - [jQuery](https://jquery.com/)
 
 ## Code Snippet
 
