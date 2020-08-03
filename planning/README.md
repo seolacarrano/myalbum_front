@@ -55,8 +55,7 @@ This is a note-taking app that a user can add, edit, and delete memo. This proje
 #### MVP
 | Component | Priority | Estimated Time | Time Invetsted | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Create Frontend project (jQuery) | H | 3hrs | -hr | -hr|
-| Create function to request data and populate dom | H | 3hrs | -hr | -hr|
+| Create function to request data and populate dom | H | 3hrs | -hrs | -hr|
 | Create function to create new data | H | 2hrs | -hr | -hr|
 | Create function to delete data | H | 2hrs | -hr | -hr |
 | Create function to edit data | M | 2hrs | -hr | -hr|

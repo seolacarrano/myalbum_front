@@ -3,4 +3,6 @@ const getImages = async () => {
     const images = await response.json()
     console.log(images)
 }
+
+const showPizzas = 
 getImages()
