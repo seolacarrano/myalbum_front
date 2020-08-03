@@ -12,16 +12,21 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <h1> Image </h1>
-    <div class="wiz">
-        <ul></ul>
-    </div>
-    <div class="form">
-        <h1>New Note</h1>
-        <input type=text name=name id="createinput"/>
-        <select name="wand" id="createselect"></select>
-        <button id="createbutton">Submit</button>
-    </div>
-    
+    <div id="modal-create" class="modal">
+        <div class="modal-content">
+          <h4>Create a New Image!</h4>
+              <div class="row">
+                  <div class="input-field">
+                      <input id="name" type="text" class="validate">
+                      <label for="name">Name</label>
+                  </div>
+                  <div class="input-field">
+                      <input id="url" type="text" class="validate">
+                      <label for="url">URL</label>
+                  </div>
+                  <button class="btn grey center-align" id="submit">Submit</button>
+              </div>
+        </div>
+      </div>
 </body>
 </html>
