@@ -1,7 +1,7 @@
 //const $ul = $("ul");
 //const $button = $("#createbutton");
 const $images = $(".images")
-const $newnote = $(".newnote")
+const $allnotes = $(".allnotes")
 const $submit = $('#submit')
 
 //get images from api and populate selector input
@@ -26,8 +26,12 @@ const getNote = async () => {
 
   //populate DOM with notes
   data.forEach((note) => {
-    const $ul = $("<ul>").text(`${note.title}''${note.note}`)
-    $newnote.append($ul)
+    const $title = $("<ul>").text(`${note.title}`)
+    const $note = $("<ul>").text(`${note.note}`)
+    //const $image = $("<ul>").attr('src', note.image.url)
+    const $image = document.createElement('img')
+    $image.setAttribute('src', note.image.url)
+    $allnotes.append($title, $note, $image)
   })
 }
 
@@ -38,11 +42,6 @@ const addImage = async (event) => {
     if (!image.url) return
 
     $images.attr('src', image.url)
-    //imageNode.addClass('image') for css
-
-    //imageNode.on('click', () => { editModal(gif) }) for edit 
-
-   // $images.appendChild(imageNode)
   })}
 
   $submit.on('click', (e) => {
