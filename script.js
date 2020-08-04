@@ -29,7 +29,7 @@ const getNote = async () => {
 
   //populate DOM with notes
   data.forEach((note) => {
-    console.log(note)
+    //console.log(note)
     const $notecontainer = $("<div>")
     const $title = $("<div>").text(`${note.title}`)
     const $note = $("<div>").text(`${note.note}`)
@@ -38,23 +38,19 @@ const getNote = async () => {
       const $image = $("<img>").attr("src", `${note.image[0].url}`) 
       $notecontainer.append($image)
     } 
-     
-  
-  
-  //$notecontainer.append($title, $note, $image)
   $allnotes.append($notecontainer)
   })
 
 }
 
 //add a new image
-const addImage = async (event) => {
+/*const addImage = async (event) => {
   $images.innerHTML = ''
   imageData.forEach((image) => {
     if (!image.url) return
 
     $images.attr('src', image.url)
-  })}
+  })}*/
 
   $submit.on('click', (e) => {
     // submits the post request to create a new picture
@@ -72,9 +68,7 @@ const addImage = async (event) => {
         body: JSON.stringify(newImage)
       })
       .then(resp => resp.json())
-      .then(resp => {
-        addImage(resp)        
-      })
+      //.then(resp => {addImage(resp)})
       $newnote.empty()
       getImage()
   })
@@ -97,6 +91,7 @@ const addImage = async (event) => {
           body: JSON.stringify(newNote)
         })
         .then(resp => resp.json())
+        //.then(resp => {        newNote(resp)           })
         $allnotes.empty()
         getNote()
     })
