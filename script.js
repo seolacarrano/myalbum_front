@@ -1,6 +1,7 @@
 //const $ul = $("ul");
 //const $button = $("#createbutton");
 const $images = $(".images")
+const $newnote = $(".newnote")
 const $allnotes = $(".allnotes")
 const $submit = $('#submit')
 const $save = $('#save')
@@ -16,7 +17,7 @@ const getImage = async () => {
       imageNode.setAttribute('src', image.url)
       //imageNode.classList.add('image')
       
-      $images.append(imageNode)
+      $newnote.append(imageNode)
     })
 };
 
@@ -30,9 +31,9 @@ const getNote = async () => {
   data.forEach((note) => {
     const $title = $("<div>").text(`${note.title}`)
     const $note = $("<div>").text(`${note.note}`)
-    const $image = $("<img>").attr("src", note.image.url)
-   
-    $allnotes.append($title, $note, $image)
+    //const $image = getImage()
+    //const $image = $("<img>").attr("src", `${note.image.url}`) //needs to be fixed
+  $allnotes.append($title, $note, $image)
   })
 }
 
@@ -64,7 +65,7 @@ const addImage = async (event) => {
       .then(resp => {
         addImage(resp)        
       })
-      $images.empty()
+      $newnote.empty()
       getImage()
   })
 
@@ -73,10 +74,10 @@ const createNote = async (event) => {
   const newNote = {
     title: $titleInput.val(),
     note: $noteInput.val(),
-    image: $images,
-  }
+    //image: $images,
+  };
 
-
+//send request to apit to create a note
 const response = await fetch ('http://localhost:3000/note', {
   method: "post",
   headers: {
@@ -84,13 +85,10 @@ const response = await fetch ('http://localhost:3000/note', {
   },
   body: JSON.stringify(newNote),
 })
-.then(resp => resp.json())
-      .then(resp => {
-    response(resp)        
-      })
+const data = response.json();
 
 $allnotes.empty()
-getNote
+getNote()
 }
  
   /*
