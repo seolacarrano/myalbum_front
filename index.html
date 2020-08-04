@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    
+    <link rel="stylesheet" href="style.css">
     <script
     src="https://code.jquery.com/jquery-3.2.1.js"
     integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
@@ -13,22 +13,21 @@
 </head>
 <body>
     
-    <div id="modal-create" class="modal">
-        <div class="modal-content">
-          <h4>Create a New Image!</h4>
-              <div class="row">
-                  <div class="input-field">
-                      <input id="name" type="text" class="validate">
-                      <label for="name">Name</label>
-                  </div>
-                  <div class="input-field">
-                      <input id="url" type="text" class="validate">
-                      <label for="url">URL</label>
-                  </div>
-                  <button class="btn grey center-align" id="submit">Submit</button>
-              </div>
+    <div class="note">
+        <div class="imagediv">
+                <div class="input-field">
+                    <label for="name">Title</label>
+                    <input id="title" type="text" class="validate">                    
+                </div>
+                <div class="input-field">
+                    <label for="url">URL</label>
+                    <input id="url" type="text" class="validate">                   
+                </div>
+                <button class="btn grey center-align" id="submit">Submit</button>
+                <div class="images"></div>
         </div>
-        <div class="images"></div>
+        <div class = "newnotediv"><h2>new note</h2></div>
+        <div class ="notelist"><h2>note list</h2></div>
       </div>
 
     

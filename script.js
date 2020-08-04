@@ -20,25 +20,25 @@ const getImage = async () => {
 
 
 //add a new image
-const addImage = async (imageData) => {
-  //$images.empty()
+const addImage = async (event) => {
+  $images.innerHTML = ''
   imageData.forEach((image) => {
     if (!image.url) return
 
-    const imageNode = $('<img>')
-    imageNode.attr('src', image.url)
+    $images.attr('src', image.url)
     //imageNode.addClass('image') for css
 
     //imageNode.on('click', () => { editModal(gif) }) for edit 
 
-    $images.append(imageNode)
-  })
-}
+   // $images.appendChild(imageNode)
+  })}
 
-$submit.on('click', (e) => {
+  $submit.on('click', (e) => {
     // submits the post request to create a new picture
-    const name = $('#name').val()
-    const url = $('#url').val()
+    const newImage = {
+        title : $('#title').val(),
+          url : $('#url').val()
+    }
   
     fetch('http://localhost:3000/image', 
       {
@@ -46,38 +46,16 @@ $submit.on('click', (e) => {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ name, url })
+        body: JSON.stringify(newImage)
       })
       .then(resp => resp.json())
       .then(resp => {
-        addImage(resp)
-        
+        addImage(resp)        
       })
-      $images.empty()
-        getImage()
-  })
-  
-    //Send request to api to create an image
-    /*const response = await fetch(`http://localhost:3000/image`, {
-        method: "post",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(createImage),
-      })
-      const data = response.json();
-    
-      //update the DOM
       $images.empty()
       getImage()
-    };*/
- fetch('http://localhost:3000/image')
-  .then(resp => resp.json())
-  .then(resp => {
-    // gets the initial data
-    addImage(resp)
   })
-    
+ 
   /*
 //delete image
 const deleteImage = async (event) => {
@@ -90,5 +68,5 @@ const deleteImage = async (event) => {
       getImage() 
 }*/
 
-//getImage()
-//$button.on('click', addImage)
+getImage()
+//$submit.on('click', addImage)
