@@ -1,7 +1,3 @@
-//set url so it uses deployed api 
-//const deployedURL = "https://seolasecondproject.herokuapp.com"
-//const URL = deployedURL ? deployedURL : "http://localhost:3000"
-
 const $ul = $("ul");
 const $button = $("#createbutton");
 const $images = $(".images")
@@ -18,7 +14,7 @@ const getImage = async () => {
       imageNode.setAttribute('src', image.url)
       imageNode.classList.add('image')
       
-      $ul.append(imageNode)
+      $images.append(imageNode)
     })
 };
 
@@ -37,7 +33,7 @@ const createImage = async (event) => {
     .then(resp=> {addPictures(resp)})
     const data = response.json();
 
-    $ul.empty()
+    $images.empty()
     getImage()
 
 };
@@ -55,73 +51,3 @@ const deleteImage = async (event) => {
 
 getImage()
 $button.on('click', createImage)
-
-
-
-
-
-
-
-
-
-
-/*
-//variable
-const images = document.querySelector('.images')
-const submit = document.getElementById('submit')
-const editSubmit = document.getElementById('submit-edit')
-const deleteButton = document.getElementById('delete')
-
-
-
-function addPictures (imageData) {
-    // Adds all of the gifs to the dom
-    images.innerHTML = ''
-    imageData.forEach(image => {
-      if (!image.url) return
-  
-      const imageNode = $('<img>')
-      imageNode.attr('src', image.url)
-      imageNode.addClass('image')
-  
-      imageNode.on('click', () => { editModal(image) })
-  
-      gifs.append(imageNode)
-    })
-  }
-
-  fetch('http://localhost:3000/image')
-  .then(resp=> resp.json())
-  .then(resp=> {addPictures(resp)})
-
-
-  submit.addEventListener('click', (e) => {
-    // submits the post request to create a new picture
-    const name = $('#name').val()
-    const url = $('#url').val()
-  
-    fetch('http://localhost:3000/image', 
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ name, url })
-      })
-      .then(resp => resp.json())
-      .then(resp => {
-        addPictures(resp)
-        $('#modal-create').modal('close')
-      })
-  })
-  
-
-  //$('.modal').modal()
-*/
-
-
-
-
-
-
-
