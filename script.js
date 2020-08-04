@@ -1,23 +1,24 @@
 //set url so it uses deployed api 
-const deployedURL = "https://seolasecondproject.herokuapp.com"
-const URL = deployedURL ? deployedURL : "http://localhost:3000"
+//const deployedURL = "https://seolasecondproject.herokuapp.com"
+//const URL = deployedURL ? deployedURL : "http://localhost:3000"
 
 const $ul = $("ul");
 const $button = $("#createbutton");
+const $images = $(".images")
 
 
 //get images from api and populate selector input
 const getImage = async () => {
-    const response = await fetch ('${URL/image}')
+    const response = await fetch ('http://localhost:3000/image')
     const data = await response.json()
 
     //populate selector with retrieved data
     data.forEach((image) => {
-        const $option = $("<option>").attr("value", image._id).text(image.title);
-        $imageSelect.append($option);
-    
-        const $option2 = $("<option>").attr("value", image._id).text(image.title);
-        $pizzaEditSelect.append($option2);
+      const imageNode = document.createElement('img')
+      imageNode.setAttribute('src', image.url)
+      imageNode.classList.add('image')
+      
+      $ul.append(imageNode)
     })
 };
 
@@ -43,7 +44,7 @@ const createImage = async (event) => {
   
 //delete image
 const deleteImage = async (event) => {
-    const response = await fetch(`${URL}/image/${event.target.id}`, {
+    const response = await fetch(`http://localhost:3000/gifs${event.target.id}`, {
         method: "delete"
       })
     
