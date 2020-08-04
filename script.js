@@ -1,3 +1,6 @@
+const deployedURL = null;
+const URL = deployedURL ? deployedURL : "http://localhost:3000";
+
 //const $ul = $("ul");
 //const $button = $("#createbutton");
 const $images = $(".images")
@@ -38,7 +41,9 @@ const getNote = async () => {
       const $image = $("<img>").attr("src", `${note.image[0].url}`) 
       $notecontainer.append($image)
     } 
-  $allnotes.append($notecontainer)
+    //delete
+    $notecontainer.append($("<button>").text("delete").attr("id", note._id).on("click", deleteNote))
+    $allnotes.append($notecontainer)
   })
 
 }
@@ -81,7 +86,7 @@ const getNote = async () => {
           note : $('#note').val(),
           //image : $('#savedimage').val(),
       }
-    
+      
       fetch('http://localhost:3000/note', 
         {
           method: 'POST',
@@ -91,58 +96,24 @@ const getNote = async () => {
           body: JSON.stringify(newNote)
         })
         .then(resp => resp.json())
-        //.then(resp => {        newNote(resp)           })
+        
         $allnotes.empty()
         getNote()
     })
   
  
-
-
-
-
-
-
-
-
-
-
-  /*
-// add a new note 
-const createNote = async (event) => {
-  const newNote = {
-    title: $titleInput.val(),
-    note: $noteInput.val(),
-    image: $imageInput.val(),
-  };
-
-//send request to apit to create a note
-const response = await fetch ('http://localhost:3000/note', {
-  method: "post",
-  headers: {
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify(newNote),
+//delete a note
+const deleteNote = async (event) => {
+  const response = await fetch(`${URL}/note/${event.target.id}`, {
+  method: "delete"
 })
-const data = response.json();
 
+
+//update the dom
 $allnotes.empty()
 getNote()
 }
- 
-  /*
-//delete image
-const deleteImage = async (event) => {
-    const response = await fetch(`http://localhost:3000/gifs${event.target.id}`, {
-        method: "delete"
-      })
-    
-      //update the dom
-      $ul.empty()
-      getImage() 
-}*/
 
 getImage()
 getNote()
-//$submit.on('click', addImage)
-//$save.on('click', createNote)
+
