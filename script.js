@@ -31,7 +31,7 @@ const getNote = async () => {
   data.forEach((note) => {
     const $title = $("<div>").text(`${note.title}`)
     const $note = $("<div>").text(`${note.note}`)
-    //const $image = getImage()
+    const $image = $("<div>").text(`${note.note}`)
     //const $image = $("<img>").attr("src", `${note.image.url}`) //needs to be fixed
   $allnotes.append($title, $note, $image)
   })
@@ -69,12 +69,46 @@ const addImage = async (event) => {
       getImage()
   })
 
+  //add a new note
+    $save.on('click', (e) => {
+      // submits the post request to create a new picture
+      const newNote = {
+          title : $('#title').val(),
+          note : $('#note').val(),
+          image : $('#savedimage'),
+      }
+    
+      fetch('http://localhost:3000/note', 
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(newNote)
+        })
+        .then(resp => resp.json())
+        $allnotes.empty()
+        getNote()
+    })
+  
+ 
+
+
+
+
+
+
+
+
+
+
+  /*
 // add a new note 
 const createNote = async (event) => {
   const newNote = {
     title: $titleInput.val(),
     note: $noteInput.val(),
-    //image: $images,
+    image: $imageInput.val(),
   };
 
 //send request to apit to create a note
@@ -106,4 +140,4 @@ const deleteImage = async (event) => {
 getImage()
 getNote()
 //$submit.on('click', addImage)
-$save.on('click', createNote)
+//$save.on('click', createNote)
