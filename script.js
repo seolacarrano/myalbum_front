@@ -1,6 +1,7 @@
-const $ul = $("ul");
-const $button = $("#createbutton");
+//const $ul = $("ul");
+//const $button = $("#createbutton");
 const $images = $(".images")
+const $newnote = $(".newnote")
 const $submit = $('#submit')
 
 //get images from api and populate selector input
@@ -18,6 +19,17 @@ const getImage = async () => {
     })
 };
 
+//get notes from api and populate selector input
+const getNote = async () => {
+  const response = await fetch ('http://localhost:3000/note')
+  const data = await response.json()
+
+  //populate DOM with notes
+  data.forEach((note) => {
+    const $ul = $("<ul>").text(`${note.title}''${note.note}`)
+    $newnote.append($ul)
+  })
+}
 
 //add a new image
 const addImage = async (event) => {
@@ -36,7 +48,7 @@ const addImage = async (event) => {
   $submit.on('click', (e) => {
     // submits the post request to create a new picture
     const newImage = {
-        title : $('#title').val(),
+        title : $('#imagetitle').val(),
           url : $('#url').val()
     }
   
@@ -69,4 +81,5 @@ const deleteImage = async (event) => {
 }*/
 
 getImage()
+getNote()
 //$submit.on('click', addImage)
