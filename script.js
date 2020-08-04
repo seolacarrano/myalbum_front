@@ -79,7 +79,7 @@ const getNote = async () => {
       const newNote = {
           title : $('#title').val(),
           note : $('#note').val(),
-          image : $('#savedimage'),
+          //image : $('#savedimage').val(),
       }
     
       fetch('http://localhost:3000/note', 
