@@ -21,6 +21,8 @@ const getImage = async () => {
       //imageNode.classList.add('image')
       
       $newnote.append(imageNode)
+      //delete
+    $newnote.append($("<button>").text("delete").attr("id", image._id).on("click", deleteImage))
     })
 };
 
@@ -108,10 +110,18 @@ const deleteNote = async (event) => {
   method: "delete"
 })
 
-
 //update the dom
 $allnotes.empty()
 getNote()
+}
+
+//delete an image
+const deleteImage = async (event) => {
+  const response = await fetch(`${URL}/image/${event.target.id}`, {
+  method: "delete"
+})
+$newnote.empty()
+getImage()
 }
 
 getImage()
