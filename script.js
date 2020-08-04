@@ -24,15 +24,15 @@ const getImage = async () => {
 const getNote = async () => {
   const response = await fetch ('http://localhost:3000/note')
   const data = await response.json()
+  //console.log(data);
 
   //populate DOM with notes
   data.forEach((note) => {
-    const $title = $("<ul>").text(`${note.title}`)
-    const $note = $("<ul>").text(`${note.note}`)
-    //const $image = $("<ul>").attr('src', note.image.url)
-    const image = document.createElement('img')
-    image.setAttribute('src', note.image.url)
-    $allnotes.append($title, $note, image)
+    const $title = $("<div>").text(`${note.title}`)
+    const $note = $("<div>").text(`${note.note}`)
+    const $image = $("<img>").attr("src", note.image.url)
+   
+    $allnotes.append($title, $note, $image)
   })
 }
 
