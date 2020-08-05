@@ -30,7 +30,7 @@ const getImage = async () => {
 
       //get image src 
       $images.append($("<button>").addClass("getimagesrc").text("add").attr("id", image._id).on("click", (event) => {
-      $imageAddInput.val(image.url)
+      $imageAddInput.val(image._id)
       $addButton.attr("id", image._id)
       }))
  
@@ -59,8 +59,8 @@ const getNote = async () => {
     const $note = $("<div>").text(`${note.note}`)
     //const $image = $("<img>").attr("src", `${note.image[0].url}`) 
     $notecontainer.append($title, $note)
-    if (note.image[0]) {
-    const $image = $("<img>").attr("src", `${note.image[0].url}`) 
+    if (note.image) {
+    const $image = $("<img>").attr("src", `${note.image.url}`) 
     $notecontainer.append($image)}
     
     
@@ -105,10 +105,11 @@ $submit.on('click', (e) => {
   //CREATE NOTES
     $save.on('click', (e) => {
       // submits the post request to create a new picture
+      console.log($('#image.validate').val())
       const newNote = {
           title : $('#title').val(),
           note : $('#note').val(),
-          image : $('.allnotes').val() || [],
+          image : $('#image.validate').val() || [],
       }
       
       fetch(`${URL}/note`, 
@@ -153,7 +154,8 @@ const updateNote = async (event) => {
   //Create Updated Note Object
   const updatedNote = {
     title: $titleEditInput.val(),
-    note: $noteEditInput.val()
+    note: $noteEditInput.val(),
+    
   }
   //make put request
   const response = await fetch(`${URL}/note/${event.target.id}`, {
@@ -171,7 +173,7 @@ const updateNote = async (event) => {
 //ADD IMAGE TO NEW NOTE
 const addImageToNote = async (event) => {
   const addedImage = {
-    //title : $('#imagetitle').val(),
+    title : $('#imagetitle').val(),
     url: $imageAddInput.val()
   }
 

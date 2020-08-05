@@ -44,19 +44,25 @@ header {
     margin-right: 20px;;
    }
 
-
+/*image div*/
 .imagediv {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
   text-align: center;
 }
 
-.note{
-    text-align: center;
-    padding-top: 50px;
+.input-field {
+    display: flex;
+    justify-content: center;
 }
-
-.notelist{
-    padding-top: 20px;
-}
+/*
+#submit {
+    display: flex;
+    justify-content: center;
+    
+    
+}*/
 
 .images{
     display: flex;
@@ -65,13 +71,34 @@ header {
     padding-top: 30px;
 }
 
+/*
+.getimagesrc, .deletebutton {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns:1fr 1fr;
+}*/
+
+
+
+/*new note div*/
+.note{
+    text-align: center;
+    padding-top: 50px;
+}
+
+/*all notes*/
+.notelist{
+    padding-top: 20px;
+}
+
+
 .editnote {
     text-align: center;
     padding-bottom: 30px;
 }
 
 
-#submit, .deletebutton, #save, .editnotebt, .deletenotebt, #editbutton{
+#submit, .deletebutton, #save, .editnotebt, .deletenotebt, #editbutton, .getimagesrc{
     background-color: #64B6AC;
     border: none;
     color: #FEE9E1;
@@ -79,15 +106,16 @@ header {
     text-decoration: none;
     margin: 1px 1px;
     cursor: pointer;
+    border-radius: 12px;
     
-  }
+}
 
 
 .getimagesrc{
     border: none;
 }
 
-/*social media icons in footer*/
+/*footer*/
 footer {
     height: 60px;
     background: #64B6AC;
@@ -106,8 +134,8 @@ footer {
       display: none;
       }
     
-     nav {
+     /*nav {
       display: block;
-     }
+     }*/
    
    }
