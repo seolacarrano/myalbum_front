@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Recursive:wght@800&display=swap');
+
+h1 {
+    font-family: 'Recursive', sans-serif;
+    color: #26547C;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -35,6 +42,7 @@ header {
    }
    
    a {
+    font-family: 'Recursive', sans-serif;
     text-decoration: none;
     color:  #FEE9E1
    }
@@ -46,36 +54,39 @@ header {
 
 /*image div*/
 .imagediv {
-  display: grid;
-  grid-template-rows: 1fr;
-  grid-template-columns: 1fr;
   text-align: center;
 }
 
-.input-field {
-    display: flex;
-    justify-content: center;
-}
-/*
 #submit {
-    display: flex;
-    justify-content: center;
-    
-    
-}*/
+    padding-top: 10px;
+}
+
+/*
+.images{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    height: 200px;
+    width: 600px;
+}
+
+.first {
+    display: grid;
+    grid-template-areas:
+    "firstline firstline firstline firstline"
+    "secondline . . ."
+    "thirdline thirdline thirdline thirdline"
+    ". . . fourthline"
+    "fifthline fifthline fifthline fifthline";
+    height: 200px;
+    width: 200px;
+}
 
 .images{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     padding-top: 30px;
-}
-
-/*
-.getimagesrc, .deletebutton {
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-template-columns:1fr 1fr;
 }*/
 
 
@@ -87,18 +98,86 @@ header {
 }
 
 /*all notes*/
+.allnotes {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    
+}
+.note {
+    padding-bottom: 50px;
+}
+.notecontainer{
+    
+    width: 30%;
+    height: 30%;
+    display: grid;
+}
+
+.notetitle{
+    font-family: 'Recursive', sans-serif;
+    font-weight: bold;
+    font-size: x-large;
+}
+
+.body{font-family: 'Recursive', sans-serif;}
+
 .notelist{
     padding-top: 20px;
 }
 
+img {
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
 
-.editnote {
+.editnote {    
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 1fr;
     text-align: center;
     padding-bottom: 30px;
+    padding-top: 10px;
 }
+
+.editbox {
+    display: grid;
+    grid-template-areas:
+    " titleeditinput"
+    " noteeditinput"
+    " editbutton";
+    
+}
+
+#titleeditinput {
+    display: grid;
+    
+}
+
+label {
+    color: #26547C;
+    font-size: 20px;
+    text-size-adjust: 100%;
+    font-weight: bold;
+    font-family: 'Recursive', sans-serif;
+}
+
+input[type=text] {
+    font-family: 'Recursive', sans-serif;
+    width: 60%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: #64B6AD;
+    color: #FEE9E1;
+    border-radius: 12px;
+  }
 
 
 #submit, .deletebutton, #save, .editnotebt, .deletenotebt, #editbutton, .getimagesrc{
+    font-family: 'Recursive', sans-serif;
     background-color: #64B6AC;
     border: none;
     color: #FEE9E1;
@@ -106,8 +185,7 @@ header {
     text-decoration: none;
     margin: 1px 1px;
     cursor: pointer;
-    border-radius: 12px;
-    
+    border-radius: 12px;    
 }
 
 

@@ -22,11 +22,12 @@ const getImage = async () => {
 
     //populate selector with retrieved data
     data.forEach((image) => {
-      const imageNode = document.createElement('img')
-      imageNode.setAttribute('src', image.url)
+      const $imageNode = $("<img>").attr('src', image.url).addClass("singleimage")
+      //const imageNode = document.createElement('img')
+      //imageNode.setAttribute('src', image.url)
       //imageNode.classList.add('image')
       
-      $images.append(imageNode)
+      $images.append($imageNode)
 
       //get image src 
       $images.append($("<button>").addClass("getimagesrc").text("add").attr("id", image._id).on("click", (event) => {
@@ -34,11 +35,6 @@ const getImage = async () => {
       $addButton.attr("id", image._id)
       }))
  
-      /*$images.append($("<button>").addClass("getimagesrc").text("add").attr("id", image._id).on("click", (event) => {
-        const images = $('img').attr('src');
-        //alert(images); 
-        }))*/
-
       //delete
       $images.append($("<button>").addClass("deletebutton").text("delete").attr("id", image._id).on("click", deleteImage))
       })
@@ -54,10 +50,9 @@ const getNote = async () => {
   //populate DOM with notes
   data.forEach((note) => {
     //console.log(note)
-    const $notecontainer = $("<div>")
-    const $title = $("<div>").text(`${note.title}`)
-    const $note = $("<div>").text(`${note.note}`)
-    //const $image = $("<img>").attr("src", `${note.image[0].url}`) 
+    const $notecontainer = $("<div>").addClass("notecontainer")
+    const $title = $("<div>").text(`${note.title}`).addClass("notetitle")
+    const $note = $("<div>").text(`${note.note}`).addClass("body")
     $notecontainer.append($title, $note)
     if (note.image) {
     const $image = $("<img>").attr("src", `${note.image.url}`) 
