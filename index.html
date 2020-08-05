@@ -4,18 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Document</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
     <link rel="stylesheet" href="style.css">
+    
     <script
     src="https://code.jquery.com/jquery-3.2.1.js"
     integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
     crossorigin="anonymous" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script> 
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script> 
 </head>
 <body>
-    <div class="imagediv">
+    <header>   
+        <ul>
+         <div class="link"><a href="#first"><li>Add Image</li></a></div>
+         <div class="link"><a href="#second"><li>Add Notes</li></a></div>
+         <div class="link"><a href="#third"><li>Note List</li></a></div>
+         <div class="hamburger">☰</div>
+        </ul>  
+     </header> 
+
+
+
+    <div class="imagediv" id="first">
         <h1> Add Images </h1>
-            <div class="input-field" id="firsttab">
+            <div class="input-field">
                 <label for="name">Title</label>
                 <input id="imagetitle" type="text" class="validate">                    
             </div>
@@ -29,8 +42,8 @@
 
 
    
-    <div class="note">
-        <div class = "newnotediv" id="secondtab"><h2>new note</h2>
+    <div class="note" id="second">
+        <div class = "newnotediv"><h2>new note</h2>
             <div class="input-field">
               <label for="title">Title</label>
               <input id="title" type="text" class="validate">                    
@@ -51,7 +64,7 @@
        
 
 
-        <div class ="notelist" class="thirdtab"><h2>note list</h2>
+        <div class ="notelist" id="third"><h2>note list</h2>
             <div class="allnotes">
             </div>
         </div>

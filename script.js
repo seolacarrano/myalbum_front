@@ -1,3 +1,23 @@
+//hamburger icon https://www.youtube.com/watch?v=1GeSOP7kHuw
+const $hamburger = $('.hamburger');
+const $links = $('.link');
+let show = false;
+  
+const showMenu = (event) => {
+ if (show){
+ $links.each(function(index){
+  $(this).css('display','none')
+  })
+  show = false
+  }else{
+   $links.each(function(index){
+   $(this).css('display','block')
+   })
+  show = true
+  }
+}
+$hamburger.on('click', showMenu)
+
 const deployedURL = null;
 const URL = deployedURL ? deployedURL : "http://localhost:3000";
 
@@ -23,7 +43,7 @@ const getImage = async () => {
       
       $images.append(imageNode)
       //delete
-    $images.append($("<button>").text("delete").attr("id", image._id).on("click", deleteImage))
+    $images.append($("<button>").addClass("deletebutton").text("delete").attr("id", image._id).on("click", deleteImage))
     })
 };
 
@@ -46,8 +66,8 @@ const getNote = async () => {
     } 
     
   //update
-  //$notecontainer.append($("<button>").text("edit").attr("id", note._id))
-  //$allnotes.append($notecontainer)
+  $notecontainer.append($("<button>").addClass("editnote").text("edit").attr("id", note._id).on("click",editModal))
+  $allnotes.append($notecontainer)
 
     //delete
     $notecontainer.append($("<button>").text("delete").attr("id", note._id).on("click", deleteNote))
@@ -136,6 +156,42 @@ getImage()
 const updateNote = async (event) => {
    const $title = 
 }*/
+
+
+//modal update
+let currentlyEditing = ''
+
+function editModal (note) {
+  // Sets the edit modal to have the data from the gif clicked on
+  $('.editnote').modal('open')
+  const nameEdit = $('#name-edit')
+  const urlEdit = $('#url-edit')
+
+  nameEdit.val(gif.name)
+  urlEdit.val(gif.url)
+
+  currentlyEditing = note._id
+}
+editSubmit.on('click', (e) => {
+  // submits the put request to edit a gif
+  const name = $('#name-edit').val()
+  const url = $('#url-edit').val()
+
+  fetch(`http://localhost:3000/note/${currentlyEditing}`,
+    {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ name, url })
+    })
+    .then(resp => resp.json())
+    .then(resp => {
+      getNote(resp)
+      $('#modal-edit').modal('close')
+    })
+  })
+
 
 getImage()
 getNote()
