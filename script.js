@@ -108,7 +108,6 @@ $submit.on('click', (e) => {
           title : $('#title').val(),
           note : $('#note').val(),
           image : $('#savedimage').val() || [],
-          //image : $('#savedimage'),
       }
       
       fetch(`${URL}/note`, 
@@ -182,8 +181,8 @@ const addImageToNote = async (event) => {
     body: JSON.stringify(addedImage)
   })
   //update the dom
-  //$images.empty();
-  //getImage();
+  $allnotes.empty();
+  getNote();
 }
 
 
