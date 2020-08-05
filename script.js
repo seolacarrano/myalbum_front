@@ -26,14 +26,17 @@ const getImage = async () => {
       $images.append(imageNode)
 
       //get image src 
-      $images.append($("<button>").addClass("getimagesrc").text("add").attr("id", image._id).on("click", (event) => {
+      /*$images.append($("<button>").addClass("getimagesrc").text("add").attr("id", image._id).on("click", (event) => {
       const imageAddInput = document.getElementById('image._id').innerHTML += '<input type="text" name="amount" />';
       imageAddInput.val(image.url)
       const $addButton = $("<button>")
       $addButton.attr("id", image._id)
-      }))
+      }))*/
 
-    
+      $images.append($("<button>").addClass("getimagesrc").text("add").attr("id", image._id).on("click", (event) => {
+        const images = $('img').attr('src');
+        alert(images); 
+        }))
 
       //delete
       $images.append($("<button>").addClass("deletebutton").text("delete").attr("id", image._id).on("click", deleteImage))
