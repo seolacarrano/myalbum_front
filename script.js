@@ -1,8 +1,3 @@
-//modal
-$('#myModal').on('shown.bs.modal', function () {
-  $('#myInput').trigger('focus')
-})
-
 const deployedURL = null;
 const URL = deployedURL ? deployedURL : "http://localhost:3000";
 
@@ -26,9 +21,9 @@ const getImage = async () => {
       imageNode.setAttribute('src', image.url)
       //imageNode.classList.add('image')
       
-      $newnote.append(imageNode)
+      $images.append(imageNode)
       //delete
-    $newnote.append($("<button>").text("delete").attr("id", image._id).on("click", deleteImage))
+    $images.append($("<button>").text("delete").attr("id", image._id).on("click", deleteImage))
     })
 };
 
@@ -49,6 +44,11 @@ const getNote = async () => {
       const $image = $("<img>").attr("src", `${note.image[0].url}`) 
       $notecontainer.append($image)
     } 
+    
+  //update
+  $notecontainer.append($("<button>").text("edit").attr("id", note._id).on("click", updateNote))
+    $allnotes.append($notecontainer)
+
     //delete
     $notecontainer.append($("<button>").text("delete").attr("id", note._id).on("click", deleteNote))
     $allnotes.append($notecontainer)
@@ -84,6 +84,7 @@ const getNote = async () => {
       //.then(resp => {addImage(resp)})
       $newnote.empty()
       getImage()
+    
   })
 
   //add a new note
@@ -108,13 +109,12 @@ const getNote = async () => {
         $allnotes.empty()
         getNote()
     })
-  
+ /* 
 //edit a note
 let currentlyEditing = ''
 
 function editModal (note) {
   // Sets the edit modal to have the data from the gif clicked on
-  $('#modal-edit').modal('open')
   const titleEdit = $('#title-edit')
   const noteEdit = $('#note-edit')
 
@@ -124,7 +124,7 @@ function editModal (note) {
   currentlyEditing = note._id
 }
 
-editSubmit.on('click', (e) => {
+editSubmit.on('click', editModal) => {
   // submits the put request to edit a gif
   const title = $('#title-edit').val()
   const note = $('#note-edit').val()
@@ -138,12 +138,9 @@ editSubmit.on('click', (e) => {
       body: JSON.stringify({ title, note })
     })
     .then(resp => resp.json())
-    .then(resp => {
-      addPictures(resp)
-      $('#modal-edit').modal('close')
-    })
+    //.then(resp => {addPictures(resp)$('#modal-edit').modal('close')})
   })
-
+*/
 
 
 //delete a note
@@ -165,6 +162,13 @@ const deleteImage = async (event) => {
 $newnote.empty()
 getImage()
 }
+
+//update an note
+const updateNote = async (event) => {
+  
+}
+
+
 
 getImage()
 getNote()
