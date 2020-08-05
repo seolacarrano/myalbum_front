@@ -59,9 +59,9 @@ const getNote = async () => {
     const $note = $("<div>").text(`${note.note}`)
     $notecontainer.append($title, $note)
     if (note.image[0]) {
-      const $image = $("<img>").attr("src", `${note.image[0].url}`) 
-      $notecontainer.append($image)
-    } 
+    const $image = $("<img>").attr("src", `${note.image[0].url}`) 
+    $notecontainer.append($image)}
+    
     
     //UPDATE NOTE
     $notecontainer.append($("<button>").addClass("editnotebt").text("edit").on("click", (event) => {
@@ -107,7 +107,7 @@ $submit.on('click', (e) => {
       const newNote = {
           title : $('#title').val(),
           note : $('#note').val(),
-          image : $('#image').val(),
+          image : $('#savedimage').val() || [],
           //image : $('#savedimage'),
       }
       
