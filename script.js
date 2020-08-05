@@ -1,23 +1,3 @@
-//hamburger icon https://www.youtube.com/watch?v=1GeSOP7kHuw
-const $hamburger = $('.hamburger');
-const $links = $('.link');
-let show = false;
-  
-const showMenu = (event) => {
- if (show){
- $links.each(function(index){
-  $(this).css('display','none')
-  })
-  show = false
-  }else{
-   $links.each(function(index){
-   $(this).css('display','block')
-   })
-  show = true
-  }
-}
-$hamburger.on('click', showMenu)
-
 const deployedURL = null;
 const URL = deployedURL ? deployedURL : "http://localhost:3000";
 
@@ -65,9 +45,16 @@ const getNote = async () => {
       $notecontainer.append($image)
     } 
     
-  //update
-  $notecontainer.append($("<button>").addClass("editnote").text("edit").attr("id", note._id).on("click",editModal))
-  $allnotes.append($notecontainer)
+    //update
+    $notecontainer.append($("<button>").addClass("editnote").text("edit").attr("id", note._id))
+    $allnotes.append($notecontainer)
+    
+    /* //add a edit button for each rat
+    $li.append($('<button>').text('edit').on("click", (event) => {
+      $nameEditInput.val(rat.name)
+      $pizzaEditSelect.val(rat.pizza._id)
+      $editButton.attr("id", rat._id)
+    }))*/
 
     //delete
     $notecontainer.append($("<button>").text("delete").attr("id", note._id).on("click", deleteNote))
@@ -77,15 +64,7 @@ const getNote = async () => {
 }
 
 //add a new image
-/*const addImage = async (event) => {
-  $images.innerHTML = ''
-  imageData.forEach((image) => {
-    if (!image.url) return
-
-    $images.attr('src', image.url)
-  })}*/
-
-  $submit.on('click', (e) => {
+$submit.on('click', (e) => {
     // submits the post request to create a new picture
     const newImage = {
         title : $('#imagetitle').val(),
@@ -102,7 +81,7 @@ const getNote = async () => {
       })
       .then(resp => resp.json())
       //.then(resp => {addImage(resp)})
-      $newnote.empty()
+      $images.empty()
       getImage()
     
   })
@@ -135,64 +114,69 @@ const getNote = async () => {
 const deleteNote = async (event) => {
   const response = await fetch(`${URL}/note/${event.target.id}`, {
   method: "delete"
-})
-
-//update the dom
-$allnotes.empty()
-getNote()
+  })
+  //update the dom
+  $allnotes.empty()
+  getNote()
 }
 
 //delete an image
 const deleteImage = async (event) => {
   const response = await fetch(`${URL}/image/${event.target.id}`, {
   method: "delete"
-})
-$newnote.empty()
-getImage()
-}
+  })
+  $images.empty()
+  getImage()
+   }
 
 /*
-//update an note
-const updateNote = async (event) => {
-   const $title = 
-}*/
-
-
-//modal update
-let currentlyEditing = ''
-
-function editModal (note) {
-  // Sets the edit modal to have the data from the gif clicked on
-  $('.editnote').modal('open')
-  const nameEdit = $('#name-edit')
-  const urlEdit = $('#url-edit')
-
-  nameEdit.val(gif.name)
-  urlEdit.val(gif.url)
-
-  currentlyEditing = note._id
-}
-editSubmit.on('click', (e) => {
-  // submits the put request to edit a gif
-  const name = $('#name-edit').val()
-  const url = $('#url-edit').val()
-
-  fetch(`http://localhost:3000/note/${currentlyEditing}`,
-    {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ name, url })
-    })
-    .then(resp => resp.json())
-    .then(resp => {
-      getNote(resp)
-      $('#modal-edit').modal('close')
-    })
+//Update a Rat
+const updateRat = async (event) => {
+  //Logging the event object
+  console.log(event)
+  //Create Updated Rat Object
+  const updatedRat = {
+    name: $nameEditInput.val(),
+    pizza: $pizzaEditSelect.val()
+  }
+  //make our put request
+  const response = await fetch(`${URL}/rat/${event.target.id}`, {
+    method: "put",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(updatedRat)
   })
+  //update the dom
+  $ul.empty();
+  getRats();
+}*/
 
 
 getImage()
 getNote()
 
+
+
+
+
+
+//hamburger icon 
+const $hamburger = $('.hamburger');
+const $links = $('.link');
+let show = false;
+  
+const showMenu = (event) => {
+ if (show){
+ $links.each(function(index){
+  $(this).css('display','none')
+  })
+  show = false
+  }else{
+   $links.each(function(index){
+   $(this).css('display','block')
+   })
+  show = true
+  }
+}
+$hamburger.on('click', showMenu)
