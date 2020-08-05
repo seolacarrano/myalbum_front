@@ -9,7 +9,7 @@ header {
     align-items: center;
     justify-content: flex-end;
     flex-direction: row;
-    background:#1d1d1d;
+    background:#64B6AC;
     margin: 0;
     padding: 10;
    }
@@ -36,7 +36,7 @@ header {
    
    a {
     text-decoration: none;
-    color:  #f8567b
+    color:  #FEE9E1
    }
    
    .hamburger {
@@ -72,9 +72,9 @@ header {
 
 
 #submit, .deletebutton, #save, .editnotebt, .deletenotebt, #editbutton{
-    background-color: #1d1d1d;
+    background-color: #64B6AC;
     border: none;
-    color: #f8567b;
+    color: #FEE9E1;
     padding: 10px 10px;
     text-decoration: none;
     margin: 1px 1px;
@@ -87,7 +87,7 @@ header {
 /*social media icons in footer*/
 footer {
     height: 60px;
-    background: #1d1d1d;
+    background: #64B6AC;
    }
    
   

@@ -1,8 +1,6 @@
 const deployedURL = null;
 const URL = deployedURL ? deployedURL : "http://localhost:3000";
-const $titleEditInput = $("#titleeditinput");
-const $noteEditInput = $("#noteeditinput");
-const $editButton = $("#editbutton");
+
 
 //const $ul = $("ul");
 //const $button = $("#createbutton");
@@ -12,6 +10,9 @@ const $allnotes = $(".allnotes")
 const $submit = $('#submit')
 const $save = $('#save')
 const editSubmit = $('#submit-edit')
+const $titleEditInput = $("#titleeditinput");
+const $noteEditInput = $("#noteeditinput");
+const $editButton = $("#editbutton");
 
 //get images from api and populate selector input
 const getImage = async () => {
