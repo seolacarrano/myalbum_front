@@ -11,6 +11,9 @@ const editSubmit = $('#submit-edit')
 const $titleEditInput = $("#titleeditinput");
 const $noteEditInput = $("#noteeditinput");
 const $editButton = $("#editbutton");
+const $addButton = $("<button>")
+const $imageAddInput = $("#image");
+
 
 //GET IMAGES from api and populate selector input
 const getImage = async () => {
@@ -26,17 +29,15 @@ const getImage = async () => {
       $images.append(imageNode)
 
       //get image src 
-      /*$images.append($("<button>").addClass("getimagesrc").text("add").attr("id", image._id).on("click", (event) => {
-      const imageAddInput = document.getElementById('image._id').innerHTML += '<input type="text" name="amount" />';
-      imageAddInput.val(image.url)
-      const $addButton = $("<button>")
-      $addButton.attr("id", image._id)
-      }))*/
-
       $images.append($("<button>").addClass("getimagesrc").text("add").attr("id", image._id).on("click", (event) => {
+      $imageAddInput.val(image.url)
+      $addButton.attr("id", image._id)
+      }))
+ 
+      /*$images.append($("<button>").addClass("getimagesrc").text("add").attr("id", image._id).on("click", (event) => {
         const images = $('img').attr('src');
-        alert(images); 
-        }))
+        //alert(images); 
+        }))*/
 
       //delete
       $images.append($("<button>").addClass("deletebutton").text("delete").attr("id", image._id).on("click", deleteImage))
@@ -106,11 +107,11 @@ $submit.on('click', (e) => {
       const newNote = {
           title : $('#title').val(),
           note : $('#note').val(),
-          //image : $('#image').val(),
+          image : $('#image').val(),
           //image : $('#savedimage'),
       }
       
-      fetch('http://localhost:3000/note', 
+      fetch(`${URL}/note`, 
         {
           method: 'POST',
           headers: {
@@ -149,12 +150,12 @@ const deleteImage = async (event) => {
 const updateNote = async (event) => {
   //Logging the event object
   console.log(event)
-  //Create Updated Rat Object
+  //Create Updated Note Object
   const updatedNote = {
     title: $titleEditInput.val(),
     note: $noteEditInput.val()
   }
-  //make our put request
+  //make put request
   const response = await fetch(`${URL}/note/${event.target.id}`, {
     method: "put",
     headers: {
@@ -192,7 +193,7 @@ getImage()
 getNote()
 //add update function to edit submit button
 $editButton.on("click", updateNote)
-
+$addButton.on("click", addImageToNote)
 
 
 

@@ -79,10 +79,13 @@ header {
     text-decoration: none;
     margin: 1px 1px;
     cursor: pointer;
+    
   }
 
 
-
+.getimagesrc{
+    border: none;
+}
 
 /*social media icons in footer*/
 footer {
