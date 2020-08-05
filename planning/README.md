@@ -58,7 +58,7 @@ This is a note-taking app that a user can add, edit, and delete memo. This proje
 | Create function to request data and populate dom | H | 3hrs | 7hrs | 7hrs|
 | Create function to create new data | H | 2hrs | 6hrs | 6hrs |
 | Create function to delete data | H | 2hrs | 0.5hr | 0.5hr |
-| Create function to edit data | M | 2hrs | -hr | -hr|
+| Create function to edit data | M | 2hrs | 3hrs | 3hrs |
 | Build UI incorporating functions  | H | 3hrs | -hr | -hr|
 | Make hanburger menu  | M | 2hrs | 0.5hr | 0.5hr|
 | Make it responsive to different scren sizes  | M | 1.5hrs | -hr | -hr|

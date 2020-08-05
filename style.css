@@ -65,10 +65,21 @@ header {
     padding-top: 30px;
 }
 
+.editnote {
+    text-align: center;
+}
 
 
 
 
+
+/*social media icons in footer*/
+footer {
+    height: 60px;
+    background: #1d1d1d;
+   }
+   
+  
 
 
 

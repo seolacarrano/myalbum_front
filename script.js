@@ -1,5 +1,8 @@
 const deployedURL = null;
 const URL = deployedURL ? deployedURL : "http://localhost:3000";
+const $titleEditInput = $("#titleeditinput");
+const $noteEditInput = $("#noteeditinput");
+const $editButton = $("#editbutton");
 
 //const $ul = $("ul");
 //const $button = $("#createbutton");
@@ -46,8 +49,11 @@ const getNote = async () => {
     } 
     
     //update
-    $notecontainer.append($("<button>").addClass("editnote").text("edit").attr("id", note._id))
-    $allnotes.append($notecontainer)
+    $notecontainer.append($("<button>").addClass("editnote").text("edit").on("click", (event) => {
+      $titleEditInput.val(note.title)
+      $noteEditInput.val(note.note)
+      $editButton.attr("id", note._id)
+    }))
     
     /* //add a edit button for each rat
     $li.append($('<button>').text('edit').on("click", (event) => {
@@ -129,34 +135,37 @@ const deleteImage = async (event) => {
   getImage()
    }
 
-/*
-//Update a Rat
-const updateRat = async (event) => {
+
+//Update a note
+const updateNote = async (event) => {
   //Logging the event object
   console.log(event)
   //Create Updated Rat Object
-  const updatedRat = {
-    name: $nameEditInput.val(),
-    pizza: $pizzaEditSelect.val()
+  const updatedNote = {
+    title: $titleEditInput.val(),
+    note: $noteEditInput.val()
   }
   //make our put request
-  const response = await fetch(`${URL}/rat/${event.target.id}`, {
+  const response = await fetch(`${URL}/note/${event.target.id}`, {
     method: "put",
     headers: {
       "Content-Type": "application/json"
     },
-    body: JSON.stringify(updatedRat)
+    body: JSON.stringify(updatedNote)
   })
   //update the dom
-  $ul.empty();
-  getRats();
-}*/
+  $allnotes.empty();
+  getNote();
+}
+
 
 
 getImage()
 getNote()
 
 
+//add update function to edit submit button
+$editButton.on("click", updateNote)
 
 
 
