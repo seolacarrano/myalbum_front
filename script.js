@@ -1,3 +1,8 @@
+//modal
+$('#myModal').on('shown.bs.modal', function () {
+  $('#myInput').trigger('focus')
+})
+
 const deployedURL = null;
 const URL = deployedURL ? deployedURL : "http://localhost:3000";
 
@@ -8,6 +13,7 @@ const $newnote = $(".newnote")
 const $allnotes = $(".allnotes")
 const $submit = $('#submit')
 const $save = $('#save')
+const editSubmit = $('#submit-edit')
 
 //get images from api and populate selector input
 const getImage = async () => {
@@ -86,7 +92,7 @@ const getNote = async () => {
       const newNote = {
           title : $('#title').val(),
           note : $('#note').val(),
-          //image : $('#savedimage').val(),
+          //image : $('#savedimage'),
       }
       
       fetch('http://localhost:3000/note', 
@@ -103,7 +109,43 @@ const getNote = async () => {
         getNote()
     })
   
- 
+//edit a note
+let currentlyEditing = ''
+
+function editModal (note) {
+  // Sets the edit modal to have the data from the gif clicked on
+  $('#modal-edit').modal('open')
+  const titleEdit = $('#title-edit')
+  const noteEdit = $('#note-edit')
+
+  titleEdit.val(note.title)
+  noteEdit.val(note.note)
+
+  currentlyEditing = note._id
+}
+
+editSubmit.on('click', (e) => {
+  // submits the put request to edit a gif
+  const title = $('#title-edit').val()
+  const note = $('#note-edit').val()
+
+  fetch(`http://localhost:3000/note/${currentlyEditing}`,
+    {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ title, note })
+    })
+    .then(resp => resp.json())
+    .then(resp => {
+      addPictures(resp)
+      $('#modal-edit').modal('close')
+    })
+  })
+
+
+
 //delete a note
 const deleteNote = async (event) => {
   const response = await fetch(`${URL}/note/${event.target.id}`, {
