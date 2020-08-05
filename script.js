@@ -46,8 +46,8 @@ const getNote = async () => {
     } 
     
   //update
-  $notecontainer.append($("<button>").text("edit").attr("id", note._id).on("click", updateNote))
-    $allnotes.append($notecontainer)
+  //$notecontainer.append($("<button>").text("edit").attr("id", note._id))
+  //$allnotes.append($notecontainer)
 
     //delete
     $notecontainer.append($("<button>").text("delete").attr("id", note._id).on("click", deleteNote))
@@ -109,39 +109,7 @@ const getNote = async () => {
         $allnotes.empty()
         getNote()
     })
- /* 
-//edit a note
-let currentlyEditing = ''
-
-function editModal (note) {
-  // Sets the edit modal to have the data from the gif clicked on
-  const titleEdit = $('#title-edit')
-  const noteEdit = $('#note-edit')
-
-  titleEdit.val(note.title)
-  noteEdit.val(note.note)
-
-  currentlyEditing = note._id
-}
-
-editSubmit.on('click', editModal) => {
-  // submits the put request to edit a gif
-  const title = $('#title-edit').val()
-  const note = $('#note-edit').val()
-
-  fetch(`http://localhost:3000/note/${currentlyEditing}`,
-    {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ title, note })
-    })
-    .then(resp => resp.json())
-    //.then(resp => {addPictures(resp)$('#modal-edit').modal('close')})
-  })
-*/
-
+ 
 
 //delete a note
 const deleteNote = async (event) => {
@@ -163,12 +131,11 @@ $newnote.empty()
 getImage()
 }
 
+/*
 //update an note
 const updateNote = async (event) => {
-  
-}
-
-
+   const $title = 
+}*/
 
 getImage()
 getNote()
