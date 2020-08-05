@@ -1,6 +1,7 @@
 body {
     margin: 0;
     padding: 0;
+    background: #fffffa
    }
 
 header {
@@ -8,8 +9,7 @@ header {
     align-items: center;
     justify-content: flex-end;
     flex-direction: row;
-    background: #1d1d1d;
-    color: #f8567b;
+    background:#1d1d1d;
     margin: 0;
     padding: 10;
    }
@@ -36,7 +36,7 @@ header {
    
    a {
     text-decoration: none;
-    color: #f8567b;
+    color:  #f8567b
    }
    
    .hamburger {
@@ -67,8 +67,19 @@ header {
 
 .editnote {
     text-align: center;
+    padding-bottom: 30px;
 }
 
+
+#submit, .deletebutton, #save, .editnotebt, .deletenotebt, #editbutton{
+    background-color: #1d1d1d;
+    border: none;
+    color: #f8567b;
+    padding: 10px 10px;
+    text-decoration: none;
+    margin: 1px 1px;
+    cursor: pointer;
+  }
 
 
 

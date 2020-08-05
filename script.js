@@ -49,21 +49,15 @@ const getNote = async () => {
     } 
     
     //update
-    $notecontainer.append($("<button>").addClass("editnote").text("edit").on("click", (event) => {
+    $notecontainer.append($("<button>").addClass("editnotebt").text("edit").on("click", (event) => {
       $titleEditInput.val(note.title)
       $noteEditInput.val(note.note)
       $editButton.attr("id", note._id)
     }))
     
-    /* //add a edit button for each rat
-    $li.append($('<button>').text('edit').on("click", (event) => {
-      $nameEditInput.val(rat.name)
-      $pizzaEditSelect.val(rat.pizza._id)
-      $editButton.attr("id", rat._id)
-    }))*/
 
     //delete
-    $notecontainer.append($("<button>").text("delete").attr("id", note._id).on("click", deleteNote))
+    $notecontainer.append($("<button>").addClass("deletenotebt").text("delete").attr("id", note._id).on("click", deleteNote))
     $allnotes.append($notecontainer)
   })
 
