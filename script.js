@@ -1,9 +1,7 @@
 const deployedURL = null;
 const URL = deployedURL ? deployedURL : "http://localhost:3000";
 
-
-//const $ul = $("ul");
-//const $button = $("#createbutton");
+//global variables
 const $images = $(".images")
 const $newnote = $(".newnote")
 const $allnotes = $(".allnotes")
@@ -14,7 +12,7 @@ const $titleEditInput = $("#titleeditinput");
 const $noteEditInput = $("#noteeditinput");
 const $editButton = $("#editbutton");
 
-//get images from api and populate selector input
+//GET IMAGES from api and populate selector input
 const getImage = async () => {
     const response = await fetch ('http://localhost:3000/image')
     const data = await response.json()
@@ -26,12 +24,24 @@ const getImage = async () => {
       //imageNode.classList.add('image')
       
       $images.append(imageNode)
-      //delete
-    $images.append($("<button>").addClass("deletebutton").text("delete").attr("id", image._id).on("click", deleteImage))
-    })
-};
 
-//get notes from api and populate selector input
+      //get image src 
+      $images.append($("<button>").addClass("getimagesrc").text("add").attr("id", image._id).on("click", (event) => {
+      const imageAddInput = document.getElementById('image._id').innerHTML += '<input type="text" name="amount" />';
+      imageAddInput.val(image.url)
+      const $addButton = $("<button>")
+      $addButton.attr("id", image._id)
+      }))
+
+    
+
+      //delete
+      $images.append($("<button>").addClass("deletebutton").text("delete").attr("id", image._id).on("click", deleteImage))
+      })
+    
+    };
+
+//GET NOTES from api and populate selector input
 const getNote = async () => {
   const response = await fetch ('http://localhost:3000/note')
   const data = await response.json()
@@ -49,7 +59,7 @@ const getNote = async () => {
       $notecontainer.append($image)
     } 
     
-    //update
+    //UPDATE NOTE
     $notecontainer.append($("<button>").addClass("editnotebt").text("edit").on("click", (event) => {
       $titleEditInput.val(note.title)
       $noteEditInput.val(note.note)
@@ -57,14 +67,14 @@ const getNote = async () => {
     }))
     
 
-    //delete
+    //DELETE NOTE
     $notecontainer.append($("<button>").addClass("deletenotebt").text("delete").attr("id", note._id).on("click", deleteNote))
     $allnotes.append($notecontainer)
   })
 
 }
 
-//add a new image
+//CREATE IMAGES
 $submit.on('click', (e) => {
     // submits the post request to create a new picture
     const newImage = {
@@ -87,12 +97,13 @@ $submit.on('click', (e) => {
     
   })
 
-  //add a new note
+  //CREATE NOTES
     $save.on('click', (e) => {
       // submits the post request to create a new picture
       const newNote = {
           title : $('#title').val(),
           note : $('#note').val(),
+          //image : $('#image').val(),
           //image : $('#savedimage'),
       }
       
@@ -111,7 +122,7 @@ $submit.on('click', (e) => {
     })
  
 
-//delete a note
+//DELETE NOTE
 const deleteNote = async (event) => {
   const response = await fetch(`${URL}/note/${event.target.id}`, {
   method: "delete"
@@ -121,7 +132,7 @@ const deleteNote = async (event) => {
   getNote()
 }
 
-//delete an image
+//DELETE IMAGE
 const deleteImage = async (event) => {
   const response = await fetch(`${URL}/image/${event.target.id}`, {
   method: "delete"
@@ -131,7 +142,7 @@ const deleteImage = async (event) => {
    }
 
 
-//Update a note
+//UPDATE NOTE
 const updateNote = async (event) => {
   //Logging the event object
   console.log(event)
@@ -153,12 +164,29 @@ const updateNote = async (event) => {
   getNote();
 }
 
+//ADD IMAGE TO NEW NOTE
+const addImageToNote = async (event) => {
+  const addedImage = {
+    url: $imageAddInput.val()
+  }
+
+  const response = await fetch(`${URL}/image/${event.target.id}`, {
+    method: "put",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(addedImage)
+  })
+  //update the dom
+  //$images.empty();
+  //getImage();
+}
+
+
 
 
 getImage()
 getNote()
-
-
 //add update function to edit submit button
 $editButton.on("click", updateNote)
 
