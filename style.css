@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Recursive:wght@800&display=swap');
 
-
-
 h1 {
     font-family: 'Recursive', sans-serif;
     color: #26547C;
@@ -13,6 +11,7 @@ body {
     background: #fffffa
    }
 
+/*menu bar*/
 header {
     display: flex;
     align-items: center;
@@ -23,40 +22,43 @@ header {
     padding: 10;
    }
    
-/*menu bar*/
-   ul {
-    display: flex;
+.home {
+   color: black;
+}
+
+ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr; 
+    grid-template-rows:1fr;
     align-items: center;
-    justify-content: flex-end;
     flex-direction: row;
-    
-   }
+}
    
-   li {
-    display: block;
+li {
+    display: block;    
     margin-left: 30px;
     margin-right: 30px;
-   }
+}
    
    
-   .link {
+.link {
     display: block;
-   }
-   
-   a {
-    font-family: 'Recursive', sans-serif;
-    text-decoration: none;
-    color:  #FEE9E1
-   }
-   
-   .logo {
-       display: none;
-   }
+    padding-left: 150px;
+}
 
-   .hamburger {
+
+a {
+font-family: 'Recursive', sans-serif;
+text-decoration: none;
+color:  #FEE9E1
+}
+   
+
+
+.hamburger {
     display: none;
     margin-right: 20px;;
-   }
+}
 
 /*image div*/
 .imagediv {
@@ -235,17 +237,9 @@ footer {
     .hamburger {
      display: block;
      }
-    
+  
      .link {
       display: none;
       }
     
-     nav {
-      display: block;
-     }
-
-     .logo {
-        display: block;
-    }
-   
-   }
+}
