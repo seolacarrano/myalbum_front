@@ -49,6 +49,10 @@ header {
     color:  #FEE9E1
    }
    
+   .logo {
+       display: none;
+   }
+
    .hamburger {
     display: none;
     margin-right: 20px;;
@@ -80,7 +84,6 @@ header {
     height: 200px;
     width: 600px;
 }
-
 .first {
     display: grid;
     grid-template-areas:
@@ -92,7 +95,6 @@ header {
     height: 200px;
     width: 200px;
 }
-
 .images{
     display: flex;
     flex-wrap: wrap;
@@ -225,5 +227,9 @@ footer {
      nav {
       display: block;
      }
+
+     .logo {
+        display: block;
+    }
    
    }
