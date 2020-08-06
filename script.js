@@ -10,7 +10,7 @@ const $save = $('#save')
 const editSubmit = $('#submit-edit')
 const $titleEditInput = $("#titleeditinput");
 const $noteEditInput = $("#noteeditinput");
-const $editButton = $("#editbutton");
+const $editButton = $(".editbutton");
 const $addButton = $("<button>")
 const $imageAddInput = $("#image");
 

@@ -153,7 +153,12 @@ img {
     margin-right: auto;
 }
 
-.editmessage {text-align: center;}
+#allmessage {text-align: center;}
+
+.editmessage {
+    padding-top: 20px;
+    text-align: center;
+}
 
 .editnote {    
     display: grid;
