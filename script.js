@@ -17,8 +17,9 @@ const $imageAddInput = $("#image");
 
 //GET IMAGES from api and populate selector input
 const getImage = async () => {
+  console.log(URL)
     const response = await fetch (`${URL}/image}`)
-    console.log(URL)
+    
     const data = await response.json()
 
     //populate selector with retrieved data
@@ -44,6 +45,7 @@ const getImage = async () => {
 
 //GET NOTES from api and populate selector input
 const getNote = async () => {
+  console.log(URL)
   const response = await fetch (`${URL}/note}`)
   const data = await response.json()
   console.log(data);
