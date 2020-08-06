@@ -18,7 +18,7 @@ const $imageAddInput = $("#image");
 //GET IMAGES from api and populate selector input
 const getImage = async () => {
   console.log(URL)
-    const response = await fetch (`${URL}/image}`)
+    const response = await fetch (`${URL}/image`)
     
     const data = await response.json()
 
@@ -46,7 +46,7 @@ const getImage = async () => {
 //GET NOTES from api and populate selector input
 const getNote = async () => {
   console.log(URL)
-  const response = await fetch (`${URL}/note}`)
+  const response = await fetch (`${URL}/note`)
   const data = await response.json()
   console.log(data);
 
@@ -85,7 +85,7 @@ $submit.on('click', (e) => {
           url : $('#url').val()
     }
   
-    fetch(`${URL}/image}`, 
+    fetch(`${URL}/image`, 
       {
         method: 'POST',
         headers: {
