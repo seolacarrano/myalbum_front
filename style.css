@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Recursive:wght@800&display=swap');
 
+
+
 h1 {
     font-family: 'Recursive', sans-serif;
     color: #26547C;
@@ -117,7 +119,6 @@ header {
     padding-bottom: 50px;
 }
 .notecontainer{
-    
     width: 30%;
     height: 30%;
     display: grid;
@@ -221,8 +222,8 @@ footer {
       display: none;
       }
     
-     /*nav {
+     nav {
       display: block;
-     }*/
+     }
    
    }

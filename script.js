@@ -1,4 +1,4 @@
-const deployedURL = null;
+const deployedURL =  https://seolasecondproject.herokuapp.com/;
 const URL = deployedURL ? deployedURL : "http://localhost:3000";
 
 //global variables
