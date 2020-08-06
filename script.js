@@ -60,6 +60,7 @@ const getNote = async () => {
     if (note.image) {
     const $image = $("<img>").attr("src", `${note.image.url}`) 
     $notecontainer.append($image)}
+   
     
     
     //UPDATE NOTE

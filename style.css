@@ -118,7 +118,7 @@ color:  #FEE9E1
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    
+    padding-bottom: 50px;
 }
 .note {
     padding-bottom: 50px;
