@@ -68,8 +68,11 @@ header {
 }
 
 .singleimage{
-    width: auto;
-    height: 300px;
+    width: 100%;
+    height: auto;
+    max-width: 500px;
+    max-height: 500px;
+    margin-top: 10px;
 }
 
 .images {
@@ -139,9 +142,13 @@ header {
 }
 
 img {
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+    max-height: 300px;
+    margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
-    width: 80%;
 }
 
 .editnote {    
