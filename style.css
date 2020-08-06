@@ -27,7 +27,9 @@ header {
 ul {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr; 
+    grid-template-rows:1fr;
     align-items: center;
+    flex-direction: row;
 }
    
 li {
@@ -234,7 +236,7 @@ footer {
 
 
 
-@media (max-width: 360px) {
+@media (max-width: 375px) {
     .hamburger {
      display: block;
      }
