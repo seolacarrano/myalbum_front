@@ -17,10 +17,8 @@ header {
     align-items: center;
     justify-content: flex-end;
     flex-direction: row;
-    background:#64B6AC;
-    margin: 0;
-    padding: 10;
-   }
+    background:#64B6AC;    
+}
    
 .home {
    color: black;
