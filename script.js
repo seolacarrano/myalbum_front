@@ -144,9 +144,7 @@ const deleteNote = async (event) => {
   $allnotes.empty()
   getNote()
 }
-
  
-
 //DELETE IMAGE
 const deleteImage = async (event) => {
   const response = await fetch(`${URL}/image/${event.target.id}`, {
