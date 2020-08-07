@@ -26,23 +26,22 @@ const getImage = async () => {
       $images.append($imageNode)
 
       
-
-      //get image src to add to a new note - related function below
-      $images.append($("<button>").addClass("getimagesrc").text("add").attr("id", image._id).on("click", (event) => {
-      $imageAddInput.val(image._id)
-      $addButton.attr("id", image._id)
-      }))
+    //get image src to add to a new note - related function below
+    $images.append($("<button>").addClass("getimagesrc").text("add").attr("id", image._id).on("click", (event) => {
+    $imageAddInput.val(image._id)
+    $addButton.attr("id", image._id)
+    }))
  
-      //delete image
-      const deleteImage = async (event) => {
-        const response = await fetch(`${URL}/image/${event.target.id}`, {
-        method: "delete"
-        })
-        $images.empty()
-        getImage()
-      }
-      $images.append($("<button>").addClass("deletebutton").text("delete").attr("id", image._id).on("click", deleteImage))
-      })
+    //delete image
+    const deleteImage = async (event) => {
+    const response = await fetch(`${URL}/image/${event.target.id}`, {
+    method: "delete"
+    })
+    $images.empty()
+    getImage()
+    }
+    $images.append($("<button>").addClass("deletebutton").text("delete").attr("id", image._id).on("click", deleteImage))
+    })
     
     };
 
@@ -64,8 +63,7 @@ const getNote = async () => {
     const $image = $("<img>").attr("src", `${note.image.url}`) 
     $notecontainer.append($image)}
    
-    
-    
+   
     //UPDATE NOTE
     $notecontainer.append($("<button>").addClass("editnotebt").text("edit").on("click", (event) => {
       $titleEditInput.val(note.title)
@@ -73,10 +71,9 @@ const getNote = async () => {
       $editButton.attr("id", note._id)
     }))
     
-
     //DELETE NOTE
     const deleteNote = async (event) => {
-    const response = await fetch(`${URL}/note/${event.target.id}`,     {
+    const response = await fetch(`${URL}/note/${event.target.id}`, {
       method: "delete"
     })
      //update the dom
@@ -85,13 +82,14 @@ const getNote = async () => {
 
     $notecontainer.append($("<button>").addClass("deletenotebt").text("delete").attr("id", note._id).on("click", deleteNote))
     $allnotes.append($notecontainer)
+    
   })
 
 }
 
 //CREATE IMAGES
 $submit.on('click', async (e) => {
-// submits the post request to create a new picture
+ // submits the post request to create a new picture
  const newImage = {
  title : $('#imagetitle').val(),
  url : $('#url').val()
@@ -140,19 +138,21 @@ const deleteNote = async (event) => {
   const response = await fetch(`${URL}/note/${event.target.id}`, {
   method: "delete"
   })
-  //update the dom
-  $allnotes.empty()
-  getNote()
+  const data = await response.json()
 }
- 
-//DELETE IMAGE
-const deleteImage = async (event) => {
-  const response = await fetch(`${URL}/image/${event.target.id}`, {
-  method: "delete"
-  })
-  $images.empty()
-  getImage()
-   }*/
+
+$notecontainer.append($("<button>").addClass("deletenotebt").text("delete").attr("id", note._id).on("click", async () => {
+  await deleteNote(),
+  
+  $allnotes.empty()
+  $allnotes.append($notecontainer)
+  getNote()}))
+   // $allnotes.append($notecontainer)
+  //update the dom
+  //$allnotes.empty()
+  //getNote()
+//}*/
+
 
 
 //UPDATE NOTE
