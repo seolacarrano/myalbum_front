@@ -43,7 +43,7 @@ This is a note-taking app that a user can add, edit, and delete memo. This proje
 - Create function to update item
 - Build UI incorporating functions 
 - Make hanburger menu 
-- Make it responsive to different scren sizes (mobile, tablet, and desktop)
+- Make it responsive to different screen sizes (mobile, tablet, and desktop)
 - Deploy API and frontend application 
 
 #### PostMVP 
@@ -61,7 +61,7 @@ This is a note-taking app that a user can add, edit, and delete memo. This proje
 | Create function to edit data | M | 2hrs | 6hrs | 6hrs |
 | Build UI incorporating functions  | H | 3hrs | 3hrs | 3hrs |
 | Make hanburger menu  | M | 2hrs | 1.5hr | 1.5hr|
-| Make it responsive to different scren sizes  | M | 1.5hrs | 0.5hr | 0.5hr|
+| Make it responsive to different screen sizes  | M | 1.5hrs | 0.5hr | 0.5hr|
 | Deploy API and frontend application   | L | 3hrs | 2hrs | 2hrs|
 | Total | H | 21.5hrs| 29hrs | 29hrs |
 
