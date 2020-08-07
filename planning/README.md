@@ -106,6 +106,30 @@ const addImageToNote = async (event) => {
 }
 
 $addButton.on("click", addImageToNote)
+
+//CREATE NOTES
+$save.on('click', async (e) => {
+  // submits the post request to create a new picture
+  const newNote = {
+  title : $('#title').val(),
+  note : $('#note').val(),
+  image : $('#image.validate').val() || [],
+  }
+  
+  const response = await fetch(`${URL}/note`, 
+  {
+  method: 'POST',
+  headers: {
+  'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(newNote)
+  })
+
+  const data = await response.json()        
+  $allnotes.empty()
+  getNote()
+})
+
 ```
 
 ## Issues and Resolutions
