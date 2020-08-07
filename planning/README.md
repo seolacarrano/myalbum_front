@@ -60,17 +60,17 @@ This is a note-taking app that a user can add, edit, and delete memo. This proje
 | Create function to delete data | H | 2hrs | 0.5hr | 0.5hr |
 | Create function to edit data | M | 2hrs | 6hrs | 6hrs |
 | Build UI incorporating functions  | H | 3hrs | 3hrs | 3hrs |
-| Make hanburger menu  | M | 2hrs | 0.5hr | 0.5hr|
+| Make hanburger menu  | M | 2hrs | 1.5hr | 1.5hr|
 | Make it responsive to different scren sizes  | M | 1.5hrs | 0.5hr | 0.5hr|
 | Deploy API and frontend application   | L | 3hrs | 2hrs | 2hrs|
-| Total | H | 21.5hrs| 27.5hrs | 27.5hrs |
+| Total | H | 21.5hrs| 29hrs | 29hrs |
 
 #### PostMVP
 | Component | Priority | Estimated Time | Time Invetsted | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
 | Make hover effect | L | 1hr | -hr | -hr|
-| Documentation  | L | 3hrs | -hr | -hr|
-| Total | H | 4.5hrs| -hrs | -hrs |
+| Documentation  | L | 3hrs | 1hr | 1hr|
+| Total | H | 4.5hrs| 1hr | 1hr |
 
 ## Additional Libraries
  - [jQuery](https://jquery.com/)
