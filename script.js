@@ -114,14 +114,13 @@ getImage()
 //CREATE NOTES
 $save.on('click', async (e) => {
   // submits the post request to create a new picture
-  console.log($('#image.validate').val())
   const newNote = {
   title : $('#title').val(),
   note : $('#note').val(),
   image : $('#image.validate').val() || [],
   }
-      
-  fetch(`${URL}/note`, 
+  
+  const response = await fetch(`${URL}/note`, 
   {
   method: 'POST',
   headers: {
@@ -129,8 +128,8 @@ $save.on('click', async (e) => {
   },
   body: JSON.stringify(newNote)
   })
-  .then(resp => resp.json())
-        
+
+  const data = await response.json()        
   $allnotes.empty()
   getNote()
 })
