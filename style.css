@@ -79,34 +79,6 @@ color:  #FEE9E1
     padding-top: 50px;
 }
 
-/*
-.images{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    height: 200px;
-    width: 600px;
-}
-.first {
-    display: grid;
-    grid-template-areas:
-    "firstline firstline firstline firstline"
-    "secondline . . ."
-    "thirdline thirdline thirdline thirdline"
-    ". . . fourthline"
-    "fifthline fifthline fifthline fifthline";
-    height: 200px;
-    width: 200px;
-}
-.images{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding-top: 30px;
-}*/
-
-
-
 /*new note div*/
 .note{
     text-align: center;
@@ -165,27 +137,6 @@ img {
     text-align: center;
     padding-top: 10px;
 }
-
-/*
-.editbox {
-    display: grid;
-    grid-template-areas:
-    ".  titleeditinput titleeditinput titleeditinput ."
-    ". noteeditinput  noteeditinput ."
-    ". editbutton .";
-    
-}
-
-.titleeditinput {
-    grid-area: titleditinput;
-}
-
-.noteeditinput {
-    grid-area: noteeditinput;
-}
-.editbutton {
-    grid-area: editbutton;
-}*/
 
 
 label {

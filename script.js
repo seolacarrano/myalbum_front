@@ -37,13 +37,16 @@ const getImage = async () => {
     const response = await fetch(`${URL}/image/${event.target.id}`, {
     method: "delete"
     })
+
     $images.empty()
     getImage()
     }
+
+
     $images.append($("<button>").addClass("deletebutton").text("delete").attr("id", image._id).on("click", deleteImage))
     })
     
-    };
+};
 
 //GET NOTES from api and populate selector input
 const getNote = async () => {
@@ -82,7 +85,7 @@ const getNote = async () => {
 
     $notecontainer.append($("<button>").addClass("deletenotebt").text("delete").attr("id", note._id).on("click", deleteNote))
     $allnotes.append($notecontainer)
-    
+      
   })
 
 }
@@ -131,29 +134,6 @@ $save.on('click', async (e) => {
   $allnotes.empty()
   getNote()
 })
-
-/*
-//DELETE NOTE
-const deleteNote = async (event) => {
-  const response = await fetch(`${URL}/note/${event.target.id}`, {
-  method: "delete"
-  })
-  const data = await response.json()
-}
-
-$notecontainer.append($("<button>").addClass("deletenotebt").text("delete").attr("id", note._id).on("click", async () => {
-  await deleteNote(),
-  
-  $allnotes.empty()
-  $allnotes.append($notecontainer)
-  getNote()}))
-   // $allnotes.append($notecontainer)
-  //update the dom
-  //$allnotes.empty()
-  //getNote()
-//}*/
-
-
 
 //UPDATE NOTE
 const updateNote = async (event) => {
