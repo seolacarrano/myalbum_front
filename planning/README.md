@@ -143,7 +143,11 @@ $save.on('click', async (e) => {
           image : $('#image.validate').val() || [], //correct id
       }
 ```
-
+## backend repo
+ - [backend](https://github.com/seolacarrano/project2_back)
+ 
 ## Previous Project Worksheet
  - [portfolio project](https://github.com/seolacarrano/seola_firstproject/blob/master/README.md)
+ 
+
 
