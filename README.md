@@ -1,5 +1,8 @@
 # Project Overview
 
+## Link to a live server 
+-[Note taking app](https://seolanotetaking.netlify.app/)
+
 ## Project Schedule
 
 |  Day | Deliverable | Status
